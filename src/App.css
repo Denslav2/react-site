@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
-body{
-  height: 2000px;
+.top_marg{
+  margin-top: 70px;
+  margin-left: 15px;
 }

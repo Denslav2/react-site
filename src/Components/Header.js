@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Container, FormControl, Nav, Navbar, Form, Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import logo from './logo192.png'
 
+import Home from '../Pages/Home';
+import About from '../Pages/About';
+import Catalog from '../Pages/Catalog';
+import Contacts from '../Pages/Contacts'
 
 export default class Header extends Component {
     render() {
@@ -16,10 +21,10 @@ export default class Header extends Component {
                                 width='30'
                                 className='d-inline-block align-top'
                                 alt='Logo'
-                            />
+                            /> React-Site
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-                        <Navbar.Collaps id='responsive-navbar-nav'>
+                        <Navbar.Collapse id='responsive-navbar-nav'>
                             <Nav className='mr-auto'>
                                 <Nav.Link href='/'>Главная</Nav.Link>
                                 <Nav.Link href='/catalog'>Каталог</Nav.Link>
@@ -34,10 +39,19 @@ export default class Header extends Component {
                                 />
                                 <Button variant='outline-info'>Поиск</Button>
                             </Form>
-                        </Navbar.Collaps>
+                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
+                <Router>
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route exact path='/catalog' component={Catalog}/>
+                        <Route exact path='/about' component={About}/>
+                        <Route exact path='/contacts' component={Contacts}/>
+                    </Switch>
+                </Router>
             </>
         );
     }
 }
+
